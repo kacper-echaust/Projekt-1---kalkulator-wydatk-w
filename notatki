@@ -1,0 +1,53 @@
+
+kolo ma sie zapelniac rowno z wydatkami procentowo i zmieniac kolor 
+usuwanie wydatkow
+
+
+
+
+
+
+
+błędy
+kolo ma sie ladowac od 0 przy starcie strony
+dodawanie wydatkow (wiem ze musi to byc tablica i poprzez tablice i pewnie for trzeba to automatycznie dodawac)
+
+// const circle = document.querySelector('.circle')
+// const circleDiv = document.querySelector('.circle-div')
+// const inputIncome = document.querySelector('.input-income')
+// const inputExpenses = document.querySelector('.input-expenses')
+// const list = document.querySelector('.list')
+// const sum = document.querySelector('.sum')
+
+// let arrayExpenses = []
+// let sumExpenses
+// //czy mam tutaj zrobic osobna funkcje ktora renderuje wszystko ?
+
+// function expensesElement() {
+// 	const inputExpensesValue = parseFloat(inputExpenses.value)
+// 	const li = document.createElement('li')
+// 	const p = document.createElement('p')
+// 	li.classList.add('list-element')
+// 	li.textContent = `${inputExpensesValue} zł` //automatycznie VS podpowiedział
+// 	list.appendChild(li)
+// 	arrayExpenses.push(inputExpensesValue)
+// 	sumExpenses = 0
+// 	for (let i = 0; i < arrayExpenses.length; i++) {
+// 		sumExpenses += arrayExpenses[i]
+// 	}
+// }
+
+// //jak wyswietlic sume tylko raz i zeby sie tylko dodawala
+
+// function incomeElements() {
+// 	const p = document.createElement('p')
+// 	const inputIncomeValue = parseFloat(inputIncome.value)
+// 	p.textContent = `${inputIncomeValue} zł`
+// 	p.classList.add('income')
+// 	circleDiv.appendChild(p)
+// }
+// inputExpenses.addEventListener('change', expensesElement)
+
+// inputIncome.addEventListener('change', function () {
+// 	incomeElements()
+// })
