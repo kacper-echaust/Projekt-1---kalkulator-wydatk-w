@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2cd79791c5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="kalkulatorJs.css">
     <title>Analizator Wydatków</title>
 </head>
 
@@ -16,8 +17,7 @@
 
 
     <div class="container">
-        <div class="list-of-expenses">
-            <p class="summary-expenses"></p>
+        <div class="container-list-of-expenses">
 
         </div>
 
@@ -36,6 +36,9 @@
     <div class="inputs">
         <input class="input-income input" type="number" min=1 placeholder="Wpisz swój dochód">
         <input class="input-expenses input" type="number" placeholder="Wpisz swój wydatek">
+        <select name="categories" class="select-category input">
+            <option value="0">Wybierz kategorię</option>
+        </select>
     </div>
 
 
@@ -45,7 +48,7 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="kalkulatorJs.js"></script>
 </body>
 
 </html>

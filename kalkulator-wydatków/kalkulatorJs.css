@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	padding: 0;
 }
 body {
 	font-family: 'Comfortaa', cursive;
@@ -35,10 +36,9 @@ body {
 	animation: circle-loading 3s linear forwards;
 }
 
-.list-of-expenses {
+.container-list-of-expenses {
 	display: flex;
 	flex-direction: column-reverse;
-	align-items: center;
 	position: absolute;
 	top: 10%;
 	left: 10%;
@@ -46,10 +46,25 @@ body {
 	width: 20%;
 	list-style: none;
 }
-.list-of-expenses li {
-	width: 80%;
+.container-list-of-expenses div ul {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column-reverse;
+	align-items: center;
+	list-style: none;
+}
+.container-list-of-expenses div p {
 	text-align: center;
-	margin: 3px 0;
+}
+.container-list-of-expenses div button {
+	border: none;
+	padding: 3px 10px;
+}
+.sum-of-expanses-in-category {
+	display: flex;
+	justify-content: center;
+	border-top: 2px solid white;
+	padding: 10px;
 }
 
 .inputs {
@@ -69,6 +84,7 @@ body {
 	border-radius: 10px;
 	color: white;
 }
+
 .input:focus {
 	background-color: rgba(70, 231, 175, 0.4);
 	outline: 3px solid rgb(70, 231, 175);
@@ -76,11 +92,6 @@ body {
 ::-webkit-input-placeholder {
 	color: white;
 	font-family: 'Comfortaa', cursive;
-}
-.summary-expenses {
-	text-align: center;
-	width: 100%;
-	padding-top: 5px;
 }
 @keyframes circle-loading {
 	0% {
@@ -98,5 +109,20 @@ body {
 	100% {
 		border: 20px solid rgb(70, 231, 175);
 		transform: rotate(180deg);
+	}
+}
+
+@media (min-width: 320px) and (max-width: 648px) {
+	.container-list-of-expenses {
+		top: 700px;
+		left: 40%;
+		flex-direction: column;
+	}
+	.list-of-expenses {
+		font-size: 15px;
+	}
+	.element-of-expenses {
+		margin-top: 20px;
+		width: 100%;
 	}
 }

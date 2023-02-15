@@ -10,44 +10,71 @@ usuwanie wydatkow
 
 błędy
 kolo ma sie ladowac od 0 przy starcie strony
-dodawanie wydatkow (wiem ze musi to byc tablica i poprzez tablice i pewnie for trzeba to automatycznie dodawac)
+function renderExpenses() {
+	containerListOfExpenses.innerHTML = '' //żeby nie dodawały sie za kazdym razem kategorie
 
-// const circle = document.querySelector('.circle')
-// const circleDiv = document.querySelector('.circle-div')
-// const inputIncome = document.querySelector('.input-income')
-// const inputExpenses = document.querySelector('.input-expenses')
-// const list = document.querySelector('.list')
-// const sum = document.querySelector('.sum')
+	// <div>
+	// <p>Categoria 1:</p>
+	// <ul>
+	//   <li> - 100zl</li>
+	//   <li> - 200zl</li>
+	// </ul>
+	// <strong> Suma: 300zl</strong>
+	// </div>
 
-// let arrayExpenses = []
-// let sumExpenses
-// //czy mam tutaj zrobic osobna funkcje ktora renderuje wszystko ?
+	// Categoria 2:
+	//   - 50zl
+	//   - 30zl
+	//   - 100zl
+	//   Suma: 180zl
 
-// function expensesElement() {
-// 	const inputExpensesValue = parseFloat(inputExpenses.value)
-// 	const li = document.createElement('li')
-// 	const p = document.createElement('p')
-// 	li.classList.add('list-element')
-// 	li.textContent = `${inputExpensesValue} zł` //automatycznie VS podpowiedział
-// 	list.appendChild(li)
-// 	arrayExpenses.push(inputExpensesValue)
-// 	sumExpenses = 0
-// 	for (let i = 0; i < arrayExpenses.length; i++) {
-// 		sumExpenses += arrayExpenses[i]
-// 	}
-// }
+	// Categoria 3:
+	//   Suma: 0zl
 
-// //jak wyswietlic sume tylko raz i zeby sie tylko dodawala
+	categories.forEach(function (category) {
+		// category -> categories[i]
 
-// function incomeElements() {
-// 	const p = document.createElement('p')
-// 	const inputIncomeValue = parseFloat(inputIncome.value)
-// 	p.textContent = `${inputIncomeValue} zł`
-// 	p.classList.add('income')
-// 	circleDiv.appendChild(p)
-// }
-// inputExpenses.addEventListener('change', expensesElement)
+		const div = document.createElement('div')
+		const p = document.createElement('p')
+		const strong = document.createElement('strong')
+		const ul = document.createElement('ul')
+		containerListOfExpenses.appendChild(div)
+		div.appendChild(p)
+		div.appendChild(ul)
+		div.appendChild(strong)
+		p.textContent = category.name
 
-// inputIncome.addEventListener('change', function () {
-// 	incomeElements()
-// })
+		// id = 1, i = 0
+		//
+
+		const filteredExpanses = state.expanses.filter(function (expanse) {
+			// expanse -> state.expanses[i]
+			// jezeli return true -> expanse trafia do tablicy filteredExpanses
+			// jezeli return false -> expanse NIE trafia do tablicy filteredExpanses
+
+			if (category.id == expanse.id) {
+				return true
+			}
+
+			return false
+		})
+
+		filteredExpanses.forEach(function (expanse) {
+			const li = document.createElement('li')
+			ul.appendChild(li)
+			li.textContent = `${expanse.amount}zl`
+		})
+
+		const sumOfExpansesInCategory = filteredExpanses.reduce(function (sum, expanse) {
+			return sum + expanse.amount
+		}, 0)
+
+		strong.textContent = `${sumOfExpansesInCategory} zł`
+
+		// reduce
+		// i = 0, sum = ?, return sum + 15
+		// i = 1, sum = 15, return sum + 10
+		// i = 2, sum = 25, return sum + 5
+	})
+	renderIncome()
+}
